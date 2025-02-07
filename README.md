@@ -1,6 +1,8 @@
 # Ollama RPG Character Maker
 
-A proof-of-concept python program that calls Ollama to generate characters suitable for a TTRPG.
+A proof-of-concept python program that calls Ollama to generate characters suitable for a TTRPG. 
+
+Ollama allows you to run LLM models locally. For more information, and to download other models, go to https://ollama.com/
 
 ## Windows and Conda
 
