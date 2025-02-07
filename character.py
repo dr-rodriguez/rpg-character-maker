@@ -3,7 +3,7 @@ import re
 
 from ollama import chat
 
-MODEL = "llama3.2:3b-8k"
+MODEL = "llama3.2:3b"
 SPECIES = [
     "Human",
     "Elf",
@@ -335,7 +335,7 @@ class Character:
             {
                 "role": "user",
                 "content": f"""
-            Generate a list of {num} character names. Use * as the bullets.
+            Generate a bulleted list of {num} character names. Use * as the bullets.
             {extra}
             """,
             },
