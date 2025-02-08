@@ -135,6 +135,52 @@ class Character:
 
         return character_info
 
+    def set_character_from_string(self, character_info: str):
+        """Set the character's attributes from a string."""
+        lines = character_info.split('\n')
+        current_attr = None
+        for line in lines:
+            if line.startswith("Name:"):
+                self.name = line.split("Name:")[1].strip()
+                current_attr = None
+            elif line.startswith("Species:"):
+                self.species = line.split("Species:")[1].strip()
+                current_attr = None
+            elif line.startswith("Class:"):
+                self.class_name = line.split("Class:")[1].strip()
+                current_attr = None
+            elif line.startswith("Concept:"):
+                self.concept = line.split("Concept:")[1].strip()
+                current_attr = None
+            elif line.startswith("Personality Traits:"):
+                self.personality_traits = []
+                current_attr = "personality_traits"
+            elif line.startswith("  *"):
+                if current_attr == "personality_traits":
+                    self.personality_traits.append(line.split("*")[1].strip())
+            elif line.startswith("Flaw:"):
+                self.flaw = line.split("Flaw:")[1].strip()
+                current_attr = "flaw"
+            elif line.startswith("Conflict:"):
+                self.conflict = line.split("Conflict:")[1].strip()
+                current_attr = "conflict"
+            elif line.startswith("Backstory:"):
+                self.backstory = line.split("Backstory:")[1].strip()
+                current_attr = "backstory"
+            elif line.startswith("Additional Details:"):
+                self.additional_details = line.split("Additional Details:")[1].strip()
+                current_attr = "additional_details"
+            elif current_attr:
+                if current_attr == "flaw":
+                    self.flaw = line.strip()
+                elif current_attr == "conflict":
+                    self.conflict = line.strip()
+                elif current_attr == "backstory":
+                    self.backstory += line.strip() + "\n"
+                    self.backstory.strip()
+                elif current_attr == "additional_details":
+                    self.additional_details = line.strip()
+
     def enhanced_context(self):
         """Enhance the context for the character."""
         if self.get_character() == "":
