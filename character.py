@@ -74,6 +74,7 @@ class Character:
         flaw: str = None,
         conflict: str = None,
         backstory: str = None,
+        additional_details: str = None,
         model: str = MODEL,
     ):
         # Character parameters
@@ -85,6 +86,7 @@ class Character:
         self.flaw = flaw
         self.conflict = conflict
         self.backstory = backstory
+        self.additional_details = additional_details
 
         # Model parameters
         self.model = model
@@ -104,6 +106,7 @@ class Character:
         self.flaw = None
         self.conflict = None
         self.backstory = None
+        self.additional_details = None
 
     def get_character(self):
         """Return the character's information as a string."""
@@ -127,6 +130,8 @@ class Character:
             character_info += f"Conflict: \n  {self.conflict}\n"
         if self.backstory is not None:
             character_info += f"Backstory: \n  {self.backstory}\n"
+        if self.additional_details is not None:
+            character_info += f"Additional Details: \n  {self.additional_details}\n"
 
         return character_info
 
